@@ -47,7 +47,7 @@ public class Producto {
     private Categoria categoria;
 
     //MAPEANDO LA RELACION ENTRE PRODUCTOS Y COMPRAPRODUCTOS
-    @OneToMany(mappedBy = "productos")
+    @OneToMany(mappedBy = "producto")
     private List<ComprasProducto> compras;
 
     // GETTERS AND SETTERS

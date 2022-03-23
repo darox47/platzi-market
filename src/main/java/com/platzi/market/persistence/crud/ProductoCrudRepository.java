@@ -3,9 +3,11 @@ package com.platzi.market.persistence.crud;
 import com.platzi.market.persistence.entity.Producto;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+
 
 public interface ProductoCrudRepository extends CrudRepository<Producto, Integer> {
 
@@ -45,10 +47,10 @@ public interface ProductoCrudRepository extends CrudRepository<Producto, Integer
 
      */
 
-    List<Producto> findByIdCategoriaOrderByNombreASC(int idCategoria);
+    List<Producto> findByIdCategoriaOrderByNombreAsc(int idCategoria);
 
     //Este Query Method hace una consulta a la BD y regresa un producto que coincida con el id y el nombre
-    Producto findByIdProductoAndNombre(int idProducto, String nombre);
+    //Producto findByIdProductoAndNombre(int idProducto, String nombre);
 
     //Este Query Method trae un listado de los productos en los que  su cantidad de stock es menor al nivel ingresado
     // y que pertenecen a una categoria en dada.
@@ -63,6 +65,6 @@ public interface ProductoCrudRepository extends CrudRepository<Producto, Integer
 
     //---------------------------------------------------------------------------------------------------------------
 
-    Optional< List<Producto> > findByCantidadStockLessThanAndEstado(int cantidadStock, boolean estado);
+    Optional< List<Producto> > findByCantidadStockLessThan(int cantidadStock);
 
 }
